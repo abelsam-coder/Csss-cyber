@@ -1,0 +1,78 @@
+:root{
+    --main:rgb(65, 63, 63);
+    --text:linear-gradient(30deg,rgb(114, 114, 255),pink);
+    --body:rgb(29, 29, 29);
+}
+body{
+    background:var(--body);
+    display: flex;
+    justify-content: center;
+}
+main{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-top: 6em;
+    background:var(--main);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    padding:0.5em 1em;
+    border-radius: 10px;
+    animation:entry 1s ease-in-out;
+}
+@keyframes entry{
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+.left,.right form{
+    display: flex;
+    flex-direction: column;
+    width:30em;
+    gap:0.5em
+}
+.right form{
+    width:22em
+}
+.left h1{
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.left h3{
+    width:80%;
+    font-weight: 100;
+}
+label{
+    font-size: large;
+}
+input{
+    width:25em;
+    height:3em;
+    border: none;
+    padding-left: 0.5em;
+    border-radius: 5px;
+}
+button{
+    padding:0.5em 0.5em;
+    width:17.8em;
+    margin-top: 0.5em;
+    font-size: larger;
+}
+button:hover{
+    box-shadow: 1px 1px 1px green,
+    1px 2px 1px white;
+    cursor: pointer;
+}
+span{
+    margin-top: 0.5em;
+    font-size: large;
+}
+a{
+    color:aquamarine
+}

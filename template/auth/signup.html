@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/auth/signup.css">
+    <title>Csss-Cyber Signup</title>
+</head>
+<body>
+
+    <!-- main-part -->
+
+    <main id="main">
+
+        <!-- left-part -->
+
+        <div class="left">
+            <img src="" alt="">
+            <h1>Registration-page</h1>
+            <h3>Welcome to Registration page after verification
+                we will send a verification link to your email from 
+                Csss-Cyber departement.
+            </h3>
+        </div>
+
+        <!-- right-part -->
+
+        <div class="right">
+
+            <!-- form -->
+
+            <form action="" method="post">
+                <!-- email form -->
+
+                <label for="">Email</label>
+                <input name="email" type="text" placeholder="you@email.com">
+
+                <!-- username form -->
+
+                <label for="">Username</label>
+                <input name="username" type="text" placeholder="Abebe">
+
+                <!-- password form -->
+
+                <label for="">Password</label>
+                <input name="password" type="text" placeholder="......">
+
+                <!-- submit button -->
+                <button type="submit">Signup</button>
+
+
+                <span>Already have an account? <a href="">Login</a></span>
+            </form>
+        </div>
+    </main>
+{%if message,username%}
+    <div class="message">
+        Welcome user {{username}} we will send verification link to Your email
+    </div>
+{%endif%}
+    <!-- js script -->
+
+    <script src="/static/js/auth/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+img{
+    width:3em
+}
+label{
+    position: relative;
+    z-index: 1;
+    margin-top: 1em;
+    left: 0;
+    margin-left: 3em;
+}
+input{
+    width:25em;
+    position: fixed;
+    margin-left: 13em;
+    margin-top: 2em;
+}
+body{
+    margin: 0;
+    padding:0;
+    background:black
+}
+aside{
+    position: absolute;
+    padding:0.5em 1em;
+    height:100vh;
+    top:0;
+    background: linear-gradient(30deg,rgb(144, 144, 212),rgb(133, 133, 155));
+}
