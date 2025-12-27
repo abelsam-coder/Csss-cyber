@@ -3,39 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNova Portal</title>
     <link rel="stylesheet" href="{{url_for("static",filename="/css/home/index.css")}}">
-    <title>Csss-Cyber</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
-<body>
-
-    <!-- header-part -->
-
-    <header>
-        <nav>
-            <h3>Csss-Cyber</h3>
+<body class="dark-theme">
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <i data-feather="cpu"></i>
+                <h3>Csss-cyber</h3>
+            </div>
+            <!-- <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </div> -->
         </nav>
     </header>
 
-    <!-- main-part -->
-
-    <main>
-        <h1>Csss-Cyber</h1>
-        <h2>Csss It club Cyber departement</h2>
-
-        <!-- buttons -->
-
-        <div class="button">
-            <button id="signup">Signup</button>
-            <button id="login">Login</button>
+    <main class="main-content">
+        <div class="hero">
+            <h1 class="title">Csss-cyber Portal</h1>
+            <h2 class="subtitle">CSS Cyber Department</h2>
+            <p class="description">Welcome to Csss-Cyber portal let's dive in to cyber world</p>
+            
+            <div class="cta-buttons">
+                <button id="signup" class="btn btn-primary">Sign Up</button>
+                <button id="login" class="btn btn-secondary">Login</button>
+            </div>
         </div>
-        
     </main>
-<!-- 
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js"></script>
-<spline-viewer url="https://prod.spline.design/ZRLgweR6AtkogD2k/scene.splinecode"></spline-viewer> 
--->
-    <!-- script -->
 
     <script src="{{url_for("static",filename="/js/home/index.js")}}"></script>
+    <script>feather.replace();</script>
+
 </body>
 </html>

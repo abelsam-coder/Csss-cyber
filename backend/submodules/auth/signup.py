@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request
+from flask import Blueprint,render_template,request,redirect,url_for,session
 from extension import bcrypt
 import sqlite3
 
@@ -14,6 +14,8 @@ def function_name():
         cursor = database.cursor()
         hash = bcrypt.generate_password_hash(password).decode()
         cursor.execute("INSERT INTO users (email,username,password)  VALUES(?,?,?)",(email,username,hash))
+        cursor.execute("INSERT INTO security (username,ctf_point,courses_completed,level,ctf_completed) VALUES(?,?,?,?,?)",(username,0,0,"Beginner",0))
         database.commit()
-        return render_template("/auth/signup.html",message="success",username=username)      
+        session['username'] = username
+        return  redirect('/dashboard')
     return render_template("/auth/signup.html")      

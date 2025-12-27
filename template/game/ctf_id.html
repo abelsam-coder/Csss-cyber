@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {%for title,description,points,img,ip in ctf%}
+    <main>
+        <img src="{{img}}" alt="">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+        <h3>Points: {{points}}</h3>
+        <h3>IP: {{ip}}</h3>
+    {%endfor%}
+    </main>
+</body>
+</html>

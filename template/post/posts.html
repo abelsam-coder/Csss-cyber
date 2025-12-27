@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNova Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Dashboard specific styles */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--bg-dark);
+        }
+
+        .sidebar {
+            width: 280px;
+            background: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            transition: all 0.3s ease;
+            border-right: 1px solid var(--border-color);
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .profile-name {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .nav-item i {
+            width: 24px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), transparent);
+            color: var(--primary-color);
+            transform: translateX(5px);
+            box-shadow: 5px 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background: var(--bg-dark);
+        }
+
+        .search-container {
+            display: flex;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .stat-title {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .content-section {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                padding: 1rem;
+            }
+            
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <img src="http://static.photos/technology/200x200/42" alt="Profile" class="profile-img">
+                <h3 class="profile-name">Abel Samuel</h3>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active animate__animated animate__fadeInLeft" style="--animate-order: 1">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item animate__animated animate__fadeInLeft" style="--animate-order: 2">
+                    <i class="fas fa-flag"></i>
+                    <span>CTF Challenges</span>
+                </a>
+                <a href="#" class="nav-item animate__animated animate__fadeInLeft" style="--animate-order: 3">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Security News</span>
+                </a>
+                <a href="#" class="nav-item animate__animated animate__fadeInLeft" style="--animate-order: 4">
+                    <i class="fas fa-edit"></i>
+                    <span>Create Post</span>
+                </a>
+                <a href="#" class="nav-item animate__animated animate__fadeInLeft" style="--animate-order: 5">
+                    <i class="fas fa-book"></i>
+                    <span>Learning Hub</span>
+                </a>
+                <a href="#" class="nav-item animate__animated animate__fadeInLeft" style="--animate-order: 6">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-item animate__animated animate__fadeInLeft" style="--animate-order: 7">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search dashboard...">
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="stat-title">Security Score</h4>
+                    <p class="stat-value">92%</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4 class="stat-title">CTF Points</h4>
+                    <p class="stat-value">1,250</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4 class="stat-title">Courses Taken</h4>
+                    <p class="stat-value">8</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h4 class="stat-title">Alerts</h4>
+                    <p class="stat-value">3</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3 class="section-title">Recent Activity</h3>
+                <!-- Activity feed would go here -->
+            </div>
+
+            <div class="content-section">
+                <h3 class="section-title">Security Alerts</h3>
+                <!-- Security alerts would go here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Animate nav items sequentially
+        document.querySelectorAll('.nav-item').forEach((item, index) => {
+            item.style.setProperty('--animate-order', index + 1);
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Add hover effects to stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
