@@ -6,7 +6,18 @@
     <title>CyberNova Portal</title>
     <link rel="stylesheet" href="{{url_for("static",filename="/css/home/index.css")}}">
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Boldonse&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+10&family=Merienda:wght@300..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body{
+            background-image:linear-gradient(30deg,rgba(73, 68, 68, 0.555),rgba(0, 0, 0, 0.445)) ,url("{{url_for("static",filename="/asset/image/🕺Talk is cheap, show me the code - Linus Torvalds_ #linuxcommands #commandline #automation #linuxubuntu #linuxkernel #linuxfan #linuxadmin #linuxtips #linuxserver #linuxuser #unix #opensource #operatingsystem #gnuli..jpg")}}");;
+            background-repeat:no-repeat;
+            background-attachment: fixed;
+            background-size:cover
+        }
+    </style>
 </head>
 <body class="dark-theme">
     <header class="header">
@@ -23,7 +34,7 @@
             </div> -->
         </nav>
     </header>
-
+<div class="mainmenu">
     <main class="main-content">
         <div class="hero">
             <h1 class="title">Csss-cyber Portal</h1>
@@ -36,6 +47,7 @@
             </div>
         </div>
     </main>
+    </div>
 
     <script src="{{url_for("static",filename="/js/home/index.js")}}"></script>
     <script>feather.replace();</script>
